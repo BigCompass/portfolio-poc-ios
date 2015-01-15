@@ -8,18 +8,6 @@ angular.module('portfolio.routes', [])
 				controller: 'AuthCtrl'
 			})
 
-			.state('login', {
-				url: '/login',
-				templateUrl: 'templates/login.html',
-				controller: 'AuthCtrl'
-			})
-
-			.state('register', {
-				url: '/register',
-				templateUrl: 'templates/register.html',
-				controller: 'AuthCtrl'
-			})
-
 			.state('tab', {
 				url: '/tab',
 				abstract: true,

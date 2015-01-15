@@ -1,6 +1,46 @@
-<ion-view view-title="welcome">
-	<ion-content class="padding">
-		<a class="button button-positive" href="#/login">login</a>
-		<a class="button button-balanced" href="#/register">register</a>
-	</ion-content>
-</ion-view>
+<ion-slide-box>
+  <ion-slide>
+	  <ion-view>
+	  	<ion-header-bar class="bar-light">
+	  		<h1 class="title">Log In</h1>
+	  	</ion-header-bar>
+	    <ion-content>
+	    	<div class="list">
+	    	  <label class="item item-input item-floating-label">
+	    	    <span class="input-label">email</span>
+	    	    <input type="email" placeholder="email">
+	    	  </label>
+	    	  <label class="item item-input item-floating-label">
+	    	    <span class="input-label">password</span>
+	    	    <input type="password" placeholder="password">
+	    	  </label>
+	    	  <a class="button button-block button-positive" href="#/tab/portfolios">login</a>
+	    	 </div>
+		</ion-content>
+	  </ion-view>
+  </ion-slide>
+  <ion-slide>
+    <ion-view>
+    	<ion-header-bar class="bar-light">
+    		<h1 class="title">Register</h1>
+    	</ion-header-bar>
+    	<ion-content>
+    		<div class="list">
+    		  <label class="item item-input item-floating-label">
+    		    <span class="input-label">first name</span>
+    		    <input type="text" placeholder="first name">
+    		  </label>
+    		  <label class="item item-input item-floating-label">
+    		    <span class="input-label">email</span>
+    		    <input type="email" placeholder="email">
+    		  </label>
+    		  <label class="item item-input item-floating-label">
+    		    <span class="input-label">password</span>
+    		    <input type="password" placeholder="password">
+    		  </label>
+    		  <a class="button button-block button-balanced" href="#/tab/portfolios">register</a>
+    		</div>
+    	</ion-content>
+    </ion-view>
+  </ion-slide>
+</ion-slide-box>
