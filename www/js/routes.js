@@ -5,7 +5,12 @@ angular.module('portfolio.routes', [])
 			.state('start', {
 				url: '/',
 				templateUrl: 'templates/start.html',
-				controller: 'AuthCtrl'
+				controller: 'StartCtrl',
+				resolve: {
+				    user: function(Auth) {
+				      return Auth.resolveUser();
+				    }
+			  	}
 			})
 
 			.state('tab', {
@@ -29,9 +34,14 @@ angular.module('portfolio.routes', [])
 			  views: {
 			    'tab-account': {
 			      templateUrl: 'templates/tab-account.html',
-			      controller: 'AuthCtrl'
+			      controller: 'AccountCtrl'
 			    }
-			  }
+			  },
+			  	resolve: {
+			  	    user: function(Auth) {
+			  	      return Auth.resolveUser();
+			  	    }
+			    }
 			})
 
 			.state('tab.portfolio', {
