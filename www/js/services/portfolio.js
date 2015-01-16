@@ -7,15 +7,36 @@ app.factory('Portfolio', function ($window, $q, $firebase, FIREBASE_URL, Investm
 			return portfolios.$add(portfolio).then(function(portfolioRef) {
 				$firebase(ref.child('user_portfolios').child(portfolio.creatorUID))
 					.$push(portfolioRef.name());
-
-				return portfolioRef;
 			});
 		},
 		get: function (portfolioId) {
 			return $firebase(ref.child('portfolios').child(portfolioId)).$asObject();
 		},
 		delete: function (portfolio) {
-			return portfolio.$remove(portfolio);
+			$firebase(ref.child('user_portfolios')
+						.child(portfolio.creatorUID))
+						.$asArray()
+						.$loaded()
+						.then(function (data) {
+							for(var i = 0; i < data.length; i++) {
+								if(data[i].$value === portfolio.$id) {
+									var fk = new Firebase(FIREBASE_URL +
+										'user_portfolios/' +
+										 portfolio.creatorUID + '/'
+										 data[i].$value);
+
+									console.log(fk);
+								}
+							}
+						});
+
+			// if (fk) { console.log(fk); }
+			/*
+			return portfolios.$remove(portfolio).then(function() {
+				$firebase(ref.child('user_portfolios').child(portfolio.creatorUID)
+					.$remove())
+			});
+			*/
 		},
 		getInvestments: function (portfolioId) {
 			var defer = $q.defer();
