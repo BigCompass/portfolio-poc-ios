@@ -1,5 +1,8 @@
 app.controller('AccountCtrl', function ($scope, $state, Auth, user) {
-	$scope.message = 'account controller';
+	
+	if (!Auth.signedIn()) {
+		$state.go('start');
+	};
 
 	$scope.logout = function () {
 	  Auth.logout(user).then(function () {

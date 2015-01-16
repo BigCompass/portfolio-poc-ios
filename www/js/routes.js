@@ -16,7 +16,12 @@ angular.module('portfolio.routes', [])
 			.state('tab', {
 				url: '/tab',
 				abstract: true,
-				templateUrl: 'templates/tabs.html'
+				templateUrl: 'templates/tabs.html',
+				resolve: {
+				    user: function(Auth) {
+				      return Auth.resolveUser();
+				    }
+			  	}
 			})
 
 			.state('tab.quote', {
