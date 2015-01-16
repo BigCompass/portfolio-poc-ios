@@ -57,6 +57,15 @@ angular.module('portfolio.routes', [])
 			      controller: 'PortfolioCtrl'
 			    }
 			  }
+			})
+			.state('tab.portfolio-detail', {
+				url: '/portfolios/:portfolioId',
+				views: {
+					'tab-portfolio': {
+						templateUrl: 'templates/portfolio-detail.html',
+						controller: 'PortfolioDetailCtrl'
+					}
+				}
 			});
 
 			// dash if nothing

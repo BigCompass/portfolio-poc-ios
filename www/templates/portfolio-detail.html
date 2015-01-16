@@ -1,0 +1,14 @@
+<ion-view>
+	<ion-header-bar class="bar-light">
+		<a class="button icon-left ion-chevron-left button-clear button-dark"
+		href="#/tab/portfolios"></a>
+		<h1 class="title">{{portfolio.name}}</h1>
+	</ion-header-bar>
+	<ion-content>
+	</ion-content>
+		<ion-list>
+			<ion-item ng-repeat="investment in portfolio.investments">
+				<h2>{{investment.symbol}}</h2>
+			</ion-item>
+		</ion-list>
+</ion-view>
