@@ -4,11 +4,19 @@
 		href="#/tab/portfolios"></a>
 		<h1 class="title">{{portfolio.name}}</h1>
 	</ion-header-bar>
-	<ion-content>
-	</ion-content>
+	<ion-header-bar class="bar-subheader item-input-inset">
+		<label class="item-input-wrapper">
+		  <input type="text" ng-model="tickerSymbol" placeholder="add investment">
+		</label>
+		<button class="button button-clear" ng-click="addInvestment()">
+		  add
+		</button>
+	</ion-header-bar>
+	<ion-content class="has-subheader">
 		<ion-list>
-			<ion-item ng-repeat="investment in portfolio.investments">
-				<h2>{{investment.symbol}}</h2>
+			<ion-item ng-repeat="investment in investments">
+				<h2>{{investment.tickerSymbol}}</h2>
 			</ion-item>
 		</ion-list>
+	</ion-content>
 </ion-view>
