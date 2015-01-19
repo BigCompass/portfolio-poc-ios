@@ -36,7 +36,6 @@ app.factory('Auth', function ($firebaseSimpleLogin, FIREBASE_URL, $rootScope, $f
   });
   $rootScope.$on('$firebaseSimpleLogin:logout', function() {
     angular.copy({}, Auth.user);
-    console.log('logged out');
   });
 
   return Auth;
