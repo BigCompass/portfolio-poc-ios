@@ -1,0 +1,21 @@
+<ion-modal-view>
+	<ion-header-bar>
+	  <h1 class="title">Add investment</h1>
+	</ion-header-bar>
+  <ion-content>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="text" ng-model="newInvestment.tickerSymbol" placeholder="ticker symbol">
+      </label>
+      <label class="item item-input">
+        <input type="number" ng-model="newInvestment.qty" placeholder="quantity">
+      </label>
+      <button class="button button-block button-positive" ng-click="addInvestment()">
+        add
+      </button>
+      <button class="button button-block button-assertive" ng-click="closeModal()">
+        cancel
+      </button>
+    </div>
+  </ion-content>
+</ion-modal-view>

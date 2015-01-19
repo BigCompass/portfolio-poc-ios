@@ -1,21 +1,18 @@
 <ion-view>
 	<ion-header-bar class="bar-light">
-		<a class="button button-icon icon ion-chevron-left"
-		href="#/tab/portfolios"></a>
-		<h1 class="title">{{portfolio.name}}</h1>
-	</ion-header-bar>
-	<ion-header-bar class="bar-subheader item-input-inset">
-		<label class="item-input-wrapper">
-		  <input type="text" ng-model="tickerSymbol" placeholder="add investment">
-		</label>
-		<button class="button button-clear" ng-click="addInvestment()">
-		  add
+		<button class="button button-icon icon ion-chevron-left" ng-click="goBack()">
 		</button>
+		<h1 class="title">Investments: {{portfolio.name}}</h1>
+		<button class="button button-icon icon ion-plus-round" ng-click="openModal()"></button>
 	</ion-header-bar>
-	<ion-content class="has-subheader">
+	<ion-content>
 		<ion-list>
 			<ion-item ng-repeat="investment in investments">
 				<h2>{{investment.tickerSymbol}}</h2>
+				<ion-option-button class="button-assertive"
+				ng-click="removeInvestment(investment)">
+				Delete
+				</ion-option-button>
 			</ion-item>
 		</ion-list>
 	</ion-content>
