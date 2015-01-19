@@ -2,15 +2,13 @@ app.controller('PortfolioCtrl', function ($scope, $state, Auth, Portfolio, Inves
 
 	if(Auth.signedIn()) {
 		$scope.user = Auth.user;
-		// get portfolios from promise
-		Portfolio.getUserPortfolios($scope.user.uid).then(function (portfolios) {
-			$scope.user.portfolios = portfolios;
-		});
+		$scope.user.portfolios = Portfolio.userPortfolios($scope.user.uid);
+		console.log($scope.user.portfolios);
 	} else {
 		$state.go('start');
 	}
 
-	$scope.createPortfolio = function() {
+	$scope.addPortfolio = function() {
 
 		var portfolio = {
 			creator: $scope.user.email,
@@ -20,17 +18,13 @@ app.controller('PortfolioCtrl', function ($scope, $state, Auth, Portfolio, Inves
 
 		console.log(portfolio);
 
-		Portfolio.create(portfolio).then(function() {
-			$scope.newPortfolioName = null;
-			// get new set of portfolios
-			Portfolio.getUserPortfolios($scope.user.uid).then(function (portfolios) {
-				$scope.user.portfolios = portfolios;
-			});
-		});
-	};
+		$scope.user.portfolios.$add(portfolio);
+
+		$scope.newPortfolioName = null;
+	}
 
 	$scope.deletePortfolio = function (portfolio) {
-		Portfolio.delete(portfolio);
+		$scope.user.portfolios.$remove(portfolio);
 	};
 
 	$scope.logPortfolio = function () {

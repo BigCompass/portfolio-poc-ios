@@ -38,6 +38,9 @@ app.factory('Portfolio', function ($window, $q, $firebase, FIREBASE_URL, Investm
 				});
 
 				return defer.promise;
+		},
+		userPortfolios: function (userId) {
+			return $firebase(ref.child('portfolios').child(userId)).$asArray();
 		}
 	};
 

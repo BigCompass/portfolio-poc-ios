@@ -7,7 +7,6 @@ app.controller('AccountCtrl', function ($scope, $state, Auth, user) {
 		console.log('logged in', user);
 	}
 
-
 	$scope.logout = function () {
 		console.log('logging out: ', user);
 		Auth.logout(user);
