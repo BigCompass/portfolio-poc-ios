@@ -3,6 +3,30 @@
 		<h1 class="title">quote</h1>
 	</ion-header-bar>
 	<ion-content>
-		
+		<div class="list list-inset">
+		  <label class="item item-input">
+		    <input type="text" ng-model="investment.symbol" placeholder="ticker symbol">
+		  </label>
+		  <button class="button button-block button-positive" ng-click="getQuote()">
+		    Get Quote
+		  </button>
+		</div>
+		<div class="list list-inset" ng-show="investment.quoteData">
+		    <div class="item item-divider">
+		      {{investment.quoteData.Symbol}}: {{investment.quoteData.Name}}
+		    </div>
+		    <div class="item item-text-wrap">
+		      Last Price: {{investment.quoteData.LastPrice}}
+		    </div>
+		    <div class="item item-text-wrap">
+		      Open: {{investment.quoteData.Open}}
+		    </div>
+		    <div class="item item-text-wrap">
+		      Change: {{investment.quoteData.Change}}
+		    </div>
+		    <div class="item item-text-wrap">
+		      Change %: {{investment.quoteData.ChangePercent}}
+		    </div>
+		</div>
 	</ion-content>
 </ion-view>

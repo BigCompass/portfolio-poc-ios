@@ -1,5 +1,5 @@
 app.controller('PortfolioDetailCtrl', function ($scope, $state, $stateParams, Auth, Portfolio, $ionicModal) {
-	$scope.portfolio = Portfolio.get($stateParams.portfolioId);
+	$scope.portfolio = Portfolio.get($stateParams.portfolioId, Auth.user.uid);
 	$scope.investments = Portfolio.investments($stateParams.portfolioId);
 
 	console.log($scope.portfolio);
