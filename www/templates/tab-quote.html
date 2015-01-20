@@ -4,10 +4,11 @@
 	</ion-header-bar>
 	<ion-content>
 		<div class="list list-inset">
-		  <label class="item item-input">
-		    <input type="text" ng-model="investment.symbol" placeholder="ticker symbol">
+		  <label class="item item-input item-stacked-label">
+		  	<span class="input-label">{{investment.lookup.Name}}</span>
+		    <input type="text" ng-model="investment.symbol" ng-change="validateSymbol()" placeholder="ticker symbol">
 		  </label>
-		  <button class="button button-block button-positive" ng-click="getQuote()">
+		  <button class="button button-block button-positive" ng-show="investment.isValid" ng-click="getQuote()">
 		    Get Quote
 		  </button>
 		</div>
